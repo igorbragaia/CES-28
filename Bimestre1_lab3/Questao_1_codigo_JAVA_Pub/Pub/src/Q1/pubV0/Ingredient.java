@@ -1,4 +1,4 @@
-package ingredient;
+package Q1.pubV0;
 
 public class Ingredient {
 	private String name;

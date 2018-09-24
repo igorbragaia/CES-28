@@ -1,25 +1,22 @@
-package listDrinks;
+package Q1.pubV0;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import drink.Drink;
-import ingredient.Ingredient;
-
-public class ListDrinks {
-	private List<Drink> drinks = new ArrayList<Drink>();
+public class Menu {
+	private List<Beverage> beverages = new ArrayList<Beverage>();
 	
-	public ListDrinks() {
+	public Menu() {
 		Ingredient rum = new Ingredient("rum", 65);
 		Ingredient grenadine = new Ingredient("grenadine", 10);
 		Ingredient limeJuice = new Ingredient("lime_juice", 10);
 		Ingredient greenStuff = new Ingredient("green_stuff", 10);
 		Ingredient tonicWater = new Ingredient("tonic_water", 20);
 		Ingredient gin = new Ingredient("gin", 85);
-		
-		Drink one_beer = new Drink("hansa", 74, null);
-		Drink one_cider = new Drink("grans", 103, null);
-		Drink a_proper_cider = new Drink("strongbow", 110, null);
+				
+		Beer one_beer = new Beer("hansa", 74);
+		Beer one_cider = new Beer("grans", 103);
+		Beer a_proper_cider = new Beer("strongbow", 110);
 		
 		List<Ingredient> gt_ingredients = new ArrayList<Ingredient>();
 		gt_ingredients.add(gin);
@@ -34,14 +31,23 @@ public class ListDrinks {
 		bacardi_special_ingredients.add(limeJuice);
 		Drink bacardi_special = new Drink("bacardi_special", 0, bacardi_special_ingredients);
 		
-		this.drinks.add(one_beer);
-		this.drinks.add(one_cider);
-		this.drinks.add(a_proper_cider);
-		this.drinks.add(gt);
-		this.drinks.add(bacardi_special);
+		this.beverages.add(one_beer);
+		this.beverages.add(one_cider);
+		this.beverages.add(a_proper_cider);
+		this.beverages.add(gt);
+		this.beverages.add(bacardi_special);
 	}
 	
-	public List<Drink> getDrinks(){
-		return this.drinks;
+	public List<Beverage> getDrinks(){
+		return this.beverages;
+	}
+	
+	public Beverage hasDrink(String drink_name) {
+    	for(int i = 0; i < this.beverages.size(); i++) {
+    		if(drink_name == this.beverages.get(i).getName()) {
+    			return this.beverages.get(i);
+    		}
+    	}
+    	return null;
 	}
 }
