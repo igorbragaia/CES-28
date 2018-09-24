@@ -1,6 +1,5 @@
 package drink;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ingredient.Ingredient;
@@ -8,7 +7,6 @@ import ingredient.Ingredient;
 public class Drink {
 	private String name;
 	private int price = 0;
-	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
 	
 	public Drink(String name, int price, List<Ingredient> ingredients){
 		this.name = name;
@@ -21,8 +19,6 @@ public class Drink {
 				this.price = this.price + ingredients.get(i).getPrice();
 			}
 		}
-		
-		this.ingredients = ingredients;
 	}
 	
 	public String getName() {
