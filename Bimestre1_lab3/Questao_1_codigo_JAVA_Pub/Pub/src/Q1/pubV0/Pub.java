@@ -5,12 +5,12 @@ import listDrinks.ListDrinks;
 public class Pub {
 
 
-    public static final String ONE_BEER = "hansa";
-    public static final String ONE_CIDER = "grans";
-    public static final String A_PROPER_CIDER = "strongbow";
-    public static final String GT = "gt";
-    public static final String BACARDI_SPECIAL = "bacardi_special";
-    
+//    public static final String ONE_BEER = "hansa";
+//    public static final String ONE_CIDER = "grans";
+//    public static final String A_PROPER_CIDER = "strongbow";
+//    public static final String GT = "gt";
+//    public static final String BACARDI_SPECIAL = "bacardi_special";
+//    
     private ListDrinks menu = new ListDrinks();
 
     public int computeCost(String drink, boolean student, int amount) {
