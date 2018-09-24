@@ -3,7 +3,8 @@ import java.util.concurrent.TimeUnit;
 
 public class ControladorPTC {
 	private Sensor sensor;
-	private Datacenter dataCenter;private PainelCondutor painelCond;
+	private Datacenter dataCenter;
+	private PainelCondutor painelCond;
 	
 	public ControladorPTC(Sensor sensor, Datacenter dataCenter, PainelCondutor painelCond) {
 		super();
