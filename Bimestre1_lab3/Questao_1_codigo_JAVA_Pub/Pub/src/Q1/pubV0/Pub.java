@@ -5,7 +5,7 @@ public class Pub {
     private Menu menu = new Menu();
 
     public int computeCost(String beverage_name, boolean student, int amount) {
-    	Beverage beverage = this.menu.hasBeverage(beverage_name);
+    	Beverage beverage = this.menu.getBeverage(beverage_name);
     	if(beverage != null) {
     		String beverage_type = beverage.getClass().getSimpleName();
     		if(amount > 2 && beverage_type.equals("Drink")) {

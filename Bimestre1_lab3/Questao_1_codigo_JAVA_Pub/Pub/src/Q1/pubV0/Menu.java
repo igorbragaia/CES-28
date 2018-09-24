@@ -42,7 +42,7 @@ public class Menu {
 		return this.beverages;
 	}
 	
-	public Beverage hasBeverage(String beverage_name) {
+	public Beverage getBeverage(String beverage_name) {
     	for(int i = 0; i < this.beverages.size(); i++) {
     		if(beverage_name == this.beverages.get(i).getName()) {
     			return this.beverages.get(i);
