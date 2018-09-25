@@ -16,6 +16,7 @@ import mock.Sensor;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
 
 class ControladorPTCTest {
 
@@ -45,7 +46,7 @@ class ControladorPTCTest {
 		when(sensor.isCruzamento()).thenReturn(true);
 		
 		ControladorPTC controladorPTC = new ControladorPTC(sensor, dataCenter, painelCond);
-		assertEquals(1,1);
+		//FALTA O TESTE DO CONSTRUTOR
 	}
 	
 	@Test
@@ -55,12 +56,15 @@ class ControladorPTCTest {
 		PainelCondutor painelCond = spy(PainelCondutor.class);
 		
 		when(sensor.isCruzamento()).thenReturn(false);
+		when(sensor.getVelocidade()).thenReturn(10.0);
 		
 		ControladorPTC controladorPTC = new ControladorPTC(sensor, dataCenter, painelCond);
 		controladorPTC.run();
+//		verify(controladorPTC).run();
 //		enviaMsgDatacenter(new Double(velocidade), dataCenter);
 //		enviaMsgNormalPainel(new Double(velocidade), painelCond);
-		assertEquals(false, sensor.isCruzamento());
+		verify(controladorPTC).enviaMsgDatacenter(new Double(10.0), dataCenter);
+		verify(controladorPTC).enviaMsgNormalPainel(new Double(10.0), painelCond);
 	}
 
 	@Test
@@ -76,6 +80,9 @@ class ControladorPTCTest {
 		
 		when(controladorPTC.enviaMsgPrioritariaPainel("Velocidade alta", painelCond)).thenReturn(true);
 		controladorPTC.run();
+		
+//		boolean result = enviaMsgPrioritariaPainel("Velocidade alta", painelCond);
+		verify(controladorPTC).enviaMsgPrioritariaPainel("Velocidade alta", painelCond);
 	}
 	
 	@Test
@@ -91,5 +98,8 @@ class ControladorPTCTest {
 		
 		when(controladorPTC.enviaMsgPrioritariaPainel("Velocidade Baixa", painelCond)).thenReturn(true);
 		controladorPTC.run();
+		
+//		aumentaVelocidade(20);
+		verify(controladorPTC).aumentaVelocidade(20);
 	}
 }
